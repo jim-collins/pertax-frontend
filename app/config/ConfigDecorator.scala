@@ -157,6 +157,8 @@ class ConfigDecorator @Inject() (configuration: Configuration, langs: Langs) ext
     feedbackSurveyFrontendHost + "/feedback-survey?origin=" + enc(origin.value)
   }
 
+  lazy val feedbackSurveyThankYouUrl = s"$feedbackSurveyFrontendHost/feedback-survey/thankYou?origin=$defaultOrigin.value"
+
   def getCompanyAuthFrontendSignOutUrl(continueUrl: String): String = {
     companyAuthHost + s"/gg/sign-out?continue=$continueUrl"
   }

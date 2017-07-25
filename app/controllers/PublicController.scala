@@ -70,6 +70,13 @@ class PublicController @Inject() (
       }
   }
 
+  def redirectToExitSurveyThankYou(): Action[AnyContent] = PublicAction {
+    implicit pertaxContext =>
+      Future.successful {
+        Redirect(configDecorator.feedbackSurveyThankYouUrl)
+      }
+  }
+
   def redirectToTaxCreditsService(): Action[AnyContent] = PublicAction {
     implicit pertaxContext =>
       Future.successful {
