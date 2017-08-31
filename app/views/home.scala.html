@@ -3,7 +3,7 @@
   incomeCards: Seq[Html],
   benefitCards: Seq[Html],
   pensionCards: Seq[Html]
-)(implicit pertaxContext: PertaxContext, messages: play.api.i18n.Messages)
+)(implicit pertaxContext: PertaxContext, messages: play.api.i18n.Messages, messagesApi: play.api.i18n.MessagesApi)
 
 @import tags._
 @import uk.gov.hmrc.play.views.formatting.Money.pounds

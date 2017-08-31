@@ -19,18 +19,20 @@ package controllers.helpers
 import config.ConfigDecorator
 import models._
 import org.scalatest.mockito.MockitoSugar
-import play.api.i18n.{I18nSupport, MessagesApi}
+import play.api.i18n.{I18nSupport, Lang, Messages, MessagesApi}
 import play.api.test.FakeRequest
 import uk.gov.hmrc.domain.SaUtr
 import util.{BaseSpec, Fixtures}
 import org.mockito.Matchers._
 import org.mockito.Mockito._
+import util.Fixtures.buildFakeAuthContext
 
 class HomeCardGeneratorSpec extends BaseSpec {
 
   trait SpecSetup extends I18nSupport {
 
     override def messagesApi: MessagesApi = injected[MessagesApi]
+    lazy val messages = new Messages(Lang("en"), messagesApi)
 
     val c = new HomeCardGenerator
   }
@@ -51,7 +53,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
         Some(PertaxUser(Fixtures.buildFakeAuthContext(withPaye = isPayeUser),UserDetails(UserDetails.GovernmentGatewayAuthProvider),None, true))
       else None
 
-      lazy val cardBody = c.getPayAsYouEarnCard(pertaxUser, taxSummary).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
+      lazy val cardBody = c.getPayAsYouEarnCard(pertaxUser, taxSummary)(messages = messages, messagesApi = messagesApi).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
     }
 
     "return nothing when called with no Pertax user" in new LocalSetup {
@@ -89,7 +91,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
 
       cardBody shouldBe
         Some("""<div class="card column-half">
-               |  <a class="card-link" href="/check-income-tax/paye">
+               |  <a class="card-link ga-track-anchor-click" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Pay As You Earn (PAYE)" href="/check-income-tax/paye">
                |    <div class="card-content" role="link">
                |      <h3 class="heading-small no-margin-top">Pay As You Earn (PAYE)</h3>
                |      <p>Your income from employers and private pensions that is taxed before it is paid to you.</p>
@@ -113,7 +115,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
 
       cardBody shouldBe
         Some("""<div class="card column-half">
-               |  <a class="card-link" href="/check-income-tax/paye">
+               |  <a class="card-link ga-track-anchor-click" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Pay As You Earn (PAYE)" href="/check-income-tax/paye">
                |    <div class="card-content" role="link">
                |      <h3 class="heading-small no-margin-top">Pay As You Earn (PAYE)</h3>
                |      <p>Your income from employers and private pensions that is taxed before it is paid to you.</p>
@@ -134,9 +136,11 @@ class HomeCardGeneratorSpec extends BaseSpec {
 
     trait LocalSetup extends SpecSetup {
 
+      implicit lazy val pertaxContext = PertaxContext(FakeRequest(), mockLocalPartialRetreiver, injected[ConfigDecorator])
+
       def taxCalcState: TaxCalculationState
 
-      lazy val cardBody = c.getTaxCalculationCard(taxCalcState).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
+      lazy val cardBody = c.getTaxCalculationCard(taxCalcState)(pertaxContext = pertaxContext, messages = messages, messagesApi = messagesApi).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
     }
 
     "return nothing when called with TaxCalculationUnderpaidPaymentsDownState" in new LocalSetup {
@@ -309,7 +313,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
 
       def saUserType: SelfAssessmentUserType
 
-      lazy val cardBody = c.getSelfAssessmentCard(saUserType).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
+      lazy val cardBody = c.getSelfAssessmentCard(saUserType)(pertaxContext = pertaxContext, messages = messages, messagesApi = messagesApi).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
     }
 
     "return correct markup when called with ActivatedOnlineFilerSelfAssessmentUser" in new LocalSetup {
@@ -394,7 +398,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
 
     trait LocalSetup extends SpecSetup {
 
-      lazy val cardBody = c.getNationalInsuranceCard().map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
+      lazy val cardBody = c.getNationalInsuranceCard()(messages = messages, messagesApi = messagesApi).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
     }
 
     "always return the same thing" in new LocalSetup {
@@ -423,7 +427,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
 
     trait LocalSetup extends SpecSetup {
 
-      lazy val cardBody = c.getTaxCreditsCard().map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
+      lazy val cardBody = c.getTaxCreditsCard()(messages = messages, messagesApi = messagesApi).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
     }
 
     "always return the same thing" in new LocalSetup {
@@ -450,7 +454,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
 
     trait LocalSetup extends SpecSetup {
 
-      lazy val cardBody = c.getChildBenefitCard().map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
+      lazy val cardBody = c.getChildBenefitCard()(messages = messages, messagesApi = messagesApi).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
     }
 
     "always return the same thing" in new LocalSetup {
@@ -482,7 +486,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
       def taxCodeEndsWith: String
 
       lazy val taxSummary = if (hasTaxSummary) Some(Fixtures.buildTaxSummary.copy(taxCodes = Seq("500"+taxCodeEndsWith))) else None
-      lazy val cardBody = c.getMarriageAllowanceCard(taxSummary).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
+      lazy val cardBody = c.getMarriageAllowanceCard(taxSummary)(messages = messages, messagesApi = messagesApi).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
     }
 
 
@@ -552,7 +556,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
 
     trait LocalSetup extends SpecSetup {
 
-      lazy val cardBody = c.getStatePensionCard().map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
+      lazy val cardBody = c.getStatePensionCard()(messages = messages, messagesApi = messagesApi).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
     }
 
     "always return the same thing" in new LocalSetup {
@@ -581,7 +585,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
 
       def hasLtaProtections: Boolean
 
-      lazy val cardBody = c.getLifetimeAllowanceProtectionCard(hasLtaProtections).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
+      lazy val cardBody = c.getLifetimeAllowanceProtectionCard(hasLtaProtections)(messages = messages, messagesApi = injected[MessagesApi]).map(_.body.split("\n").filter(!_.trim.isEmpty).mkString("\n")) //remove empty lines
     }
 
     "return nothing when called with a user who does not have lta protections" in new LocalSetup {
