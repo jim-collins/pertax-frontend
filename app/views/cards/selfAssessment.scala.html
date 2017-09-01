@@ -1,5 +1,6 @@
-@import tags._
 @(saActionNeeded: SelfAssessmentUserType, taxYear: String)(implicit messages: play.api.i18n.Messages, messagesApi: play.api.i18n.MessagesApi, pertaxContext: PertaxContext)
+
+@import tags._
 
 @cardLink = @{
   saActionNeeded match {
@@ -36,10 +37,10 @@
         <li><a class="ga-track-anchor-click" href="/pay-online/self-assessment/make-a-payment?mode=pta" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="@gaTrackAnchorEventTranslateLabel("label.make_a_payment", "en")">@Messages("label.make_a_payment")</a></li>
       }
       case NotYetActivatedOnlineFilerSelfAssessmentUser(saUtr) => {
-        <li><a class="ga-track-anchor-click" href="/personal-account/self-assessment" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="@gaTrackAnchorEventTranslateLabel("label.activate_your_self_assessment", "en")">@Messages("label.activate_your_self_assessment")</a></li>
+        <li><a class="ga-track-anchor-click" href="@controllers.routes.ApplicationController.handleSelfAssessment()" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="@gaTrackAnchorEventTranslateLabel("label.activate_your_self_assessment", "en")">@Messages("label.activate_your_self_assessment")</a></li>
       }
       case AmbiguousFilerSelfAssessmentUser(saUtr) => {
-        <li><a class="ga-track-anchor-click" href="https://www.gov.uk/self-assessment-tax-returns" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="@gaTrackAnchorEventTranslateLabel("label.understand_self_assessment", "en")">@Messages("label.understand_self_assessment")</a></li>
+        <li><a class="ga-track-anchor-click" href="@controllers.routes.ApplicationController.handleSelfAssessment()" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="@gaTrackAnchorEventTranslateLabel("label.access_your_self_assessment", "en")">@Messages("label.access_your_self_assessment")</a></li>
       }
       case _ => {}
     }

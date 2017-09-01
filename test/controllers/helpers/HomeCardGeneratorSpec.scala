@@ -170,6 +170,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
                |  <div class="card-actions">
                |    <ul>
                |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/status" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Claim your tax refund">Claim your tax refund</a></li>
+               |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/paid-too-much/reasons" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out why you paid too much">Find out why you paid too much</a></li>
                |    </ul>
                |  </div>
                |</div>""".stripMargin)
@@ -189,7 +190,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
                |  </a>
                |  <div class="card-actions">
                |    <ul>
-               |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/status" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="View your tax refund">View your tax refund</a></li>
+               |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/paid-too-much/reasons" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out why you paid too much">Find out why you paid too much</a></li>
                |    </ul>
                |  </div>
                |</div>""".stripMargin)
@@ -209,7 +210,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
                |  </a>
                |  <div class="card-actions">
                |    <ul>
-               |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/status" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="View your tax refund">View your tax refund</a></li>
+               |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/paid-too-much/reasons" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out why you paid too much">Find out why you paid too much</a></li>
                |    </ul>
                |  </div>
                |</div>""".stripMargin)
@@ -229,7 +230,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
                |  </a>
                |  <div class="card-actions">
                |    <ul>
-               |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/status" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="View your tax refund">View your tax refund</a></li>
+               |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/paid-too-much/reasons" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out why you paid too much">Find out why you paid too much</a></li>
                |    </ul>
                |  </div>
                |</div>""".stripMargin)
@@ -249,7 +250,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
                |  </a>
                |  <div class="card-actions">
                |    <ul>
-               |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/status" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out why you paid too little">Find out why you paid too little</a></li>
+               |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/paid-too-little/reasons" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out why you paid too little">Find out why you paid too little</a></li>
                |    </ul>
                |  </div>
                |</div>""".stripMargin)
@@ -269,7 +270,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
                |  </a>
                |  <div class="card-actions">
                |    <ul>
-               |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/status" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out why you paid too little">Find out why you paid too little</a></li>
+               |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/paid-too-little/reasons" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out why you paid too little">Find out why you paid too little</a></li>
                |    </ul>
                |  </div>
                |</div>""".stripMargin)
@@ -289,7 +290,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
                |  </a>
                |  <div class="card-actions">
                |    <ul>
-               |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/status" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="View the tax you paid">View the tax you paid</a></li>
+               |        <li><a class="ga-track-anchor-click" href="/tax-you-paid/paid-too-little/reasons" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Find out why you paid too little">Find out why you paid too little</a></li>
                |    </ul>
                |  </div>
                |</div>""".stripMargin)
@@ -378,7 +379,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
                |  </a>
                |  <div class="card-actions">
                |    <ul>
-               |        <li><a class="ga-track-anchor-click" href="https://www.gov.uk/self-assessment-tax-returns" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Understand Self Assessment">Understand Self Assessment</a></li>
+               |        <li><a class="ga-track-anchor-click" href="/personal-account/self-assessment" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="Access your Self Assessment">Access your Self Assessment</a></li>
                |    </ul>
                |  </div>
                |</div>""".stripMargin)
@@ -442,7 +443,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
                |  </a>
                |  <div class="card-actions">
                |    <ul>
-               |      <li><a class="ga-track-anchor-click" href="https://www.gov.uk/qualify-tax-credits" data-ga-event-category="link - click" data-ga-event-action="Benefits" data-ga-event-label="Find out if you qualify for tax credits">Find out if you qualify for tax credits</a></li>
+               |      <li><a class="ga-track-anchor-click" href="/tax-credits-service/home/payment-schedule" data-ga-event-category="link - click" data-ga-event-action="Benefits" data-ga-event-label="View your tax credits payments">View your tax credits payments</a></li>
                |    </ul>
                |  </div>
                |</div>""".stripMargin)
@@ -470,7 +471,6 @@ class HomeCardGeneratorSpec extends BaseSpec {
                |  <div class="card-actions">
                |    <ul>
                |      <li><a class="ga-track-anchor-click" href="/forms/form/Tell-Child-Benefit-about-your-child-staying-in-non-advanced-education-or-approved-training/guide" data-ga-event-category="link - click" data-ga-event-action="Benefits" data-ga-event-label="Tell us if your child is staying in full-time education">Tell us if your child is staying in full-time education</a></li>
-               |      <li><a class="ga-track-anchor-click" href="https://www.gov.uk/child-benefit/eligibility" data-ga-event-category="link - click" data-ga-event-action="Benefits" data-ga-event-label="Find out if you qualify for Child Benefit">Find out if you qualify for Child Benefit</a></li>
                |    </ul>
                |  </div>
                |</div>""".stripMargin)
@@ -490,18 +490,46 @@ class HomeCardGeneratorSpec extends BaseSpec {
     }
 
 
-    "return nothing when called with a user who has tax summary and receives Marriage Allowance" in new LocalSetup {
+    "return correct markup when called with a user who has tax summary and receives Marriage Allowance" in new LocalSetup {
       override val hasTaxSummary: Boolean = true
       override val taxCodeEndsWith = "M"
 
-      cardBody shouldBe None
+      cardBody shouldBe
+        Some(
+          """<div class="card column-half">
+            |  <a class="card-link ga-track-anchor-click" href="/marriage-allowance-application/history" data-ga-event-category="link - click" data-ga-event-action="Benefits" data-ga-event-label="Marriage Allowance">
+            |    <div class="card-content" role="link">
+            |      <h3 class="heading-small no-margin-top">Marriage Allowance</h3>
+            |      <p>Your partner currently transfers part of their Personal Allowance to you.</p>
+            |    </div>
+            |  </a>
+            |  <div class="card-actions">
+            |    <ul>
+            |        <li><a class="ga-track-anchor-click" href="/marriage-allowance-application/make-changes" data-ga-event-category="link - click" data-ga-event-action="Benefits" data-ga-event-label="Manage your Marriage Allowance">Manage your Marriage Allowance</a></li>
+            |    </ul>
+            |  </div>
+            |</div>""".stripMargin)
     }
 
     "return nothing when called with a user who has tax summary and transfers Marriage Allowance" in new LocalSetup {
       override val hasTaxSummary: Boolean = true
       override val taxCodeEndsWith = "N"
 
-      cardBody shouldBe None
+      cardBody shouldBe
+        Some(
+          """<div class="card column-half">
+            |  <a class="card-link ga-track-anchor-click" href="/marriage-allowance-application/history" data-ga-event-category="link - click" data-ga-event-action="Benefits" data-ga-event-label="Marriage Allowance">
+            |    <div class="card-content" role="link">
+            |      <h3 class="heading-small no-margin-top">Marriage Allowance</h3>
+            |      <p>You currently transfer part of your Personal Allowance to your partner.</p>
+            |    </div>
+            |  </a>
+            |  <div class="card-actions">
+            |    <ul>
+            |        <li><a class="ga-track-anchor-click" href="/marriage-allowance-application/make-changes" data-ga-event-category="link - click" data-ga-event-action="Benefits" data-ga-event-label="Manage your Marriage Allowance">Manage your Marriage Allowance</a></li>
+            |    </ul>
+            |  </div>
+            |</div>""".stripMargin)
     }
 
     "return correct markup when called with a user who has no tax summary" in new LocalSetup {
@@ -520,7 +548,7 @@ class HomeCardGeneratorSpec extends BaseSpec {
             |  </a>
             |  <div class="card-actions">
             |    <ul>
-            |      <li><a class="ga-track-anchor-click" href="/marriage-allowance-application/history" data-ga-event-category="link - click" data-ga-event-action="Benefits" data-ga-event-label="Find out if you qualify for Marriage Allowance">Find out if you qualify for Marriage Allowance</a></li>
+            |        <li><a class="ga-track-anchor-click" href="/marriage-allowance-application/benefit-calculator-pta" data-ga-event-category="link - click" data-ga-event-action="Benefits" data-ga-event-label="Find out if you qualify for Marriage Allowance">Find out if you qualify for Marriage Allowance</a></li>
             |    </ul>
             |  </div>
             |</div>""".stripMargin)
@@ -542,12 +570,11 @@ class HomeCardGeneratorSpec extends BaseSpec {
             |  </a>
             |  <div class="card-actions">
             |    <ul>
-            |      <li><a class="ga-track-anchor-click" href="/marriage-allowance-application/history" data-ga-event-category="link - click" data-ga-event-action="Benefits" data-ga-event-label="Find out if you qualify for Marriage Allowance">Find out if you qualify for Marriage Allowance</a></li>
+            |        <li><a class="ga-track-anchor-click" href="/marriage-allowance-application/benefit-calculator-pta" data-ga-event-category="link - click" data-ga-event-action="Benefits" data-ga-event-label="Find out if you qualify for Marriage Allowance">Find out if you qualify for Marriage Allowance</a></li>
             |    </ul>
             |  </div>
             |</div>""".stripMargin)
     }
-
 
   }
 
@@ -571,8 +598,8 @@ class HomeCardGeneratorSpec extends BaseSpec {
                |  </a>
                |  <div class="card-actions">
                |    <ul>
-               |      <li><a class="ga-track-anchor-click" href="/check-your-state-pension/account/pta" data-ga-event-category="link - click" data-ga-event-action="Pensions" data-ga-event-label="Check your State Pension">Check your State Pension</a></li>
-               |      <li><a class="ga-track-anchor-click" href="/check-your-state-pension/account/nirecord" data-ga-event-category="link - click" data-ga-event-action="Pensions" data-ga-event-label="Check your National Insurance record for gaps">Check your National Insurance record for gaps</a></li>
+               |      <li><a class="ga-track-anchor-click" href="/check-your-state-pension/account" data-ga-event-category="link - click" data-ga-event-action="Pensions" data-ga-event-label="View your State Pension forecast">View your State Pension forecast</a></li>
+               |      <li><a class="ga-track-anchor-click" href="/check-your-state-pension/account/nirecord" data-ga-event-category="link - click" data-ga-event-action="Pensions" data-ga-event-label="View your National Insurance record">View your National Insurance record</a></li>
                |    </ul>
                |  </div>
                |</div>""".stripMargin)

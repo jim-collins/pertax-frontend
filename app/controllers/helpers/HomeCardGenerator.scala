@@ -90,10 +90,16 @@ class HomeCardGenerator {
 
   def getMarriageAllowanceCard(taxSummary: Option[TaxSummary])(implicit messages: Messages, messagesApi: MessagesApi) = {
 
-    if (taxSummary.map(ts => ts.isMarriageAllowanceRecipient).getOrElse(false)) None
-    else Some(views.html.cards.marriageAllowance())
+    if (taxSummary.map(ts => ts.taxCodes.exists(taxCode => taxCode.toUpperCase.endsWith("M"))).getOrElse(false)) {
+      Some(views.html.cards.marriageAllowance("recipient"))
+    }
+    else if (taxSummary.map(ts => ts.taxCodes.exists(taxCode => taxCode.toUpperCase.endsWith("N"))).getOrElse(false)) {
+      Some(views.html.cards.marriageAllowance("transferor"))
+    }
+    else {
+      Some(views.html.cards.marriageAllowance("non-ma"))
+    }
   }
-
 
   def getStatePensionCard()(implicit messages: Messages, messagesApi: MessagesApi) = {
     Some(views.html.cards.statePension())

@@ -1,5 +1,6 @@
-@import tags._
 @(taxCalculationState: TaxCalculationState)(implicit messages: play.api.i18n.Messages, messagesApi: play.api.i18n.MessagesApi)
+
+@import tags._
 
 @heading = @{
   taxCalculationState match {
@@ -13,47 +14,41 @@
 @contentAndLinks = @{
   taxCalculationState match {
     case TaxCalculationOverpaidRefundState(amount, startOfTaxYear, endOfTaxYear) =>
-      (Messages("label.hmrc_owes_you_a_refund_for_the_to_year", amount, startOfTaxYear.toString, endOfTaxYear.toString), List(
-        Messages("label.claim_your_tax_refund")),
-        gaTrackAnchorEventTranslateLabel("label.claim_your_tax_refund", "en")
-      )
+      (Messages("label.hmrc_owes_you_a_refund_for_the_to_tax_year", amount, startOfTaxYear.toString, endOfTaxYear.toString), List(
+        ("label.claim_your_tax_refund", "/tax-you-paid/status"),
+        ("label.find_out_why_you_paid_too_much", "/tax-you-paid/paid-too-much/reasons")
+      ))
 
     case TaxCalculationOverpaidPaymentProcessingState(amount) =>
       (Messages("label.hmrc_is_processing_your_refund", amount), List(
-        Messages("label.view_your_tax_refund")),
-        gaTrackAnchorEventTranslateLabel("label.view_your_tax_refund", "en")
-      )
+        ("label.find_out_why_you_paid_too_much", "/tax-you-paid/paid-too-much/reasons")
+      ))
 
     case TaxCalculationOverpaidPaymentPaidState(amount, datePaid) =>
       (Messages("label.hmrc_has_paid_your_refund", amount), List(
-        Messages("label.view_your_tax_refund")),
-        gaTrackAnchorEventTranslateLabel("label.view_your_tax_refund", "en")
-      )
+        ("label.find_out_why_you_paid_too_much", "/tax-you-paid/paid-too-much/reasons")
+      ))
 
     case TaxCalculationOverpaidPaymentChequeSentState(amount, datePaid) =>
       (Messages("label.hmrc_sent_you_a_cheque_for", amount), List(
-        Messages("label.view_your_tax_refund")),
-        gaTrackAnchorEventTranslateLabel("label.view_your_tax_refund", "en")
-      )
+        ("label.find_out_why_you_paid_too_much", "/tax-you-paid/paid-too-much/reasons")
+      ))
 
     case TaxCalculationUnderpaidPaymentDueState(amount, startOfTaxYear, endOfTaxYear) =>
       (Messages("label.you_owe_hmrc_for_the_to_tax_year", amount, startOfTaxYear.toString, endOfTaxYear.toString), List(
-        Messages("label.find_out_why_you_paid_too_little")),
-        gaTrackAnchorEventTranslateLabel("label.find_out_why_you_paid_too_little", "en")
-      )
+        ("label.find_out_why_you_paid_too_little", "/tax-you-paid/paid-too-little/reasons")
+      ))
 
     case TaxCalculationUnderpaidPartPaidState(amount, startOfTaxYear, endOfTaxYear) =>
       (Messages("label.you_owe_hmrc_for_the_to_tax_year", amount, startOfTaxYear.toString, endOfTaxYear.toString), List(
-        Messages("label.find_out_why_you_paid_too_little")),
-        gaTrackAnchorEventTranslateLabel("label.find_out_why_you_paid_too_little", "en")
-      )
+        ("label.find_out_why_you_paid_too_little", "/tax-you-paid/paid-too-little/reasons")
+      ))
 
     case TaxCalculationUnderpaidPaidAllState(startOfTaxYear, endOfTaxYear) =>
       (Messages("label.you_have_no_payments_to_make_to_hmrc_for_the_to_tax_year", startOfTaxYear.toString, endOfTaxYear.toString), List(
-        Messages("label.view_the_tax_you_paid")),
-        gaTrackAnchorEventTranslateLabel("label.view_the_tax_you_paid", "en")
-      )
-    case _ => ("", List(), "")
+        ("label.find_out_why_you_paid_too_little", "/tax-you-paid/paid-too-little/reasons")
+      ))
+    case _ => ("", List())
   }
 }
 
@@ -66,8 +61,8 @@
   </a>
   <div class="card-actions">
     <ul>
-      @contentAndLinks._2.map { label =>
-        <li><a class="ga-track-anchor-click" href="/tax-you-paid/status" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="@contentAndLinks._3">@label</a></li>
+      @contentAndLinks._2.map { case (linkLabel, url) =>
+        <li><a class="ga-track-anchor-click" href="@url" data-ga-event-category="link - click" data-ga-event-action="Income" data-ga-event-label="@gaTrackAnchorEventTranslateLabel(linkLabel, "en")">@Messages(linkLabel)</a></li>
       }
     </ul>
   </div>

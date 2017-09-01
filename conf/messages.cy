@@ -232,7 +232,7 @@ label.check_your_tax_code_and_paye_income=Gwirio''ch cod treth a''ch incwm Talu 
 label.check_your_tax_codes_and_an_estimate_of_the_income_tax_youll_pay=Gwirio''ch codau treth ac amcangyfrif o''r Dreth Incwm y byddwch yn ei thalu.
 label.check_your_tax_credits_record=Gwirio''ch cofnod credydau treth.
 label.check_your_child_benefits_record=Rhowch wybod i ni am unrhyw newidiadau a all effeithio ar eich Budd-dal Plant.
-label.view_your_national_insurance_record=Bwrw golwg ar eich cofnod Yswiriant Gwladol.
+label.view_your_national_insurance_record=Bwrw golwg ar eich cofnod Yswiriant Gwladol
 label.your_benefits_and_tcr_and_what_you_may_be_entitled_to_get=eich cofnod budd-daliadau a chredydau treth a''r hyn y gallwch fod â hawl iddo.
 label.your_state_pension_pension_credit_and_pension_record=Eich cofnod Pensiwn y Wladwriaeth, Credyd Pensiwn a phensiynau.
 label.check_when_you_can_claim_your_state_pension_and_how_much_you_can_get=Gwirio pryd y gallwch hawlio''ch Pensiwn y Wladwriaeth a faint y gallwch ei gael.
@@ -534,12 +534,13 @@ label.make_sure_you_are_paying_the_right_amount_of_tax=Sicrhau eich bod yn talu'
 label.check_how_much_tax_you_paid_last_year=Gwirio faint o dreth y taloch y llynedd
 label.claim_your_tax_refund=Gwneud cais am eich ad-daliad treth
 label.view_your_tax_refund=Gweld eich ad-daliad treth
+label.find_out_why_you_paid_too_much=Cael gwybod pam yr ydych wedi talu gormod
 label.find_out_why_you_paid_too_little=Cael gwybod pam nad ydych wedi talu digon
 label.view_the_tax_you_paid=Gweld y dreth a dalwyd gennych
 label.get_more_information_about_when_your_p800_will_arrive=Cael rhagor o wybodaeth am bryd y bydd eich P800 yn cyrraedd
 label.get_more_information_about_the_tax_you_paid=Cael rhagor o wybodaeth am y dreth a daloch
 
-label.hmrc_owes_you_a_refund_for_the_to_year=Mae ar CThEM ad-daliad o £{0} i chi ar gyfer blwyddyn dreth {1} i {2}.
+label.hmrc_owes_you_a_refund_for_the_to_tax_year=Mae ar CThEM ad-daliad o £{0} i chi ar gyfer blwyddyn dreth {1} i {2}.
 label.hmrc_is_processing_your_refund=Mae CThEM yn prosesu''ch ad-daliad o £{0}.
 label.hmrc_has_paid_your_refund=Talodd CThEM eich ad-daliad o £{0}.
 label.hmrc_sent_you_a_cheque_for=Anfonodd CThEM siec i chi am £{0}.
@@ -555,6 +556,7 @@ label.you_cannot_access_this_service_right_now=Ni allwch gyrchu''r gwasanaeth hw
 label.complete_your_tax_return=Llenwi''ch Ffurflen Dreth
 label.make_a_payment=Gwneud taliad
 label.understand_self_assessment=Deall Hunanasesiad
+label.access_your_self_assessment=Access your Self Assessment
 label.you_need_to_complete_a_tax_return_once_a_year_yours_is_due_by_=Mae angen i chi lenwi Ffurflen Dreth unwaith y flwyddyn. Y dyddiad cau ar gyfer anfon eich un chi yw 31 Ionawr (2018).
 
 label.national_insurance=Yswiriant Gwladol
@@ -580,10 +582,14 @@ label.tax_credits=Credydau treth
 label.view_your_next_payments_and_the_people_on_your_claim_and_make_changes_to_your_claim=Bwrw golwg ar eich taliadau nesaf a''r bobl ar eich cais, a gwneud newidiadau i''ch cais.
 label.change_your_circumstances=Newid eich amgylchiadau
 label.find_out_if_you_qualify_for_tax_credits=Dod i wybod a ydych yn gymwys ar gyfer credydau treth
+label.view_your_tax_credits_payments=Gweld eich taliadau credydau treth
 
 title.marriage_allowance=Lwfans Priodasol
 label.transfer_part_of_your_personal_allowance_to_your_partner_=Trosglwyddo rhan o''ch Lwfans Personol i''ch partner fel ei fod/bod yn talu llai o dreth.
 label.find_out_if_you_qualify_for_marriage_allowance=Dod i wybod a ydych yn gymwys ar gyfer Lwfans Priodasol
+label.manage_your_marriage_allowance=Rheoli''ch Lwfans Priodasol
+label.your_partner_currently_transfers_part_of_their_personal_allowance_to_you=Your partner currently transfers part of their Personal Allowance to you.
+label.you_currently_transfer_part_of_your_personal_allowance_to_your_partner=You currently transfer part of your Personal Allowance to your partner.
 
 label.child_benefit=Budd-dal Plant
 label.a_tax_free_payment_to_help_parents_with_the_cost_of_bringing_up_children=Taliad yn rhydd o dreth i helpu rhieni gyda chostau magu plant.
@@ -596,9 +602,9 @@ title.pensions=Pensiynau
 title.state_pension=Pensiwn y Wladwriaeth
 label.you_are_still_contributing_to_your_state_pension_=Rydych yn dal i gyfrannu tuag at eich Pensiwn y Wladwriaeth. Cael rhagolwg a dod i wybod pryd y gallwch ddechrau''i hawlio.
 label.check_your_national_insurance_record_for_gaps=Gwirio''ch cofnod Yswiriant Gwladol am fylchau
-
-label.lifetime_allowance_protection=Diogelwch Lwfans Oes
-label.your_lifetime_allowance_is_protected_from_additional_tax_charges=Mae''ch lwfans oes wedi''i ddiogelu rhag codiadau treth ychwanegol.
+label.view_your_state_pension_forecast=Bwrw golwg ar ragolwg o''ch Pensiwn y Wladwriaeth
+label.lifetime_allowance_protection=Diogelwch lwfans oes
+label.your_lifetime_allowance_is_protected_from_additional_tax_charges=Mae''ch lwfans oes wedi''i warchod rhag codiannau treth ychwanegol.
 label.manage_your_protections=Rheoli''ch polisïau diogelwch
 
 # Your account
