@@ -11,8 +11,6 @@ private object AppDependencies {
 
   private val playHealthVersion = "2.1.0"
 
-  private val govukTemplateVersion =  "5.2.0"
-
   val compile = Seq(
     ws,
     "uk.gov.hmrc" %% "play-health" % playHealthVersion,
